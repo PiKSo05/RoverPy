@@ -1,13 +1,18 @@
-from RoverPy_command.py import RoverPyCommand
+import sys
+#import RoverPy_command
+from RoverPy_command import RoverPyCommand
 
 roverPyCommand = RoverPyCommand()
 
+#roverPyCommand.test()
+
 roverPyCommand.forward(1)
-#backward(1)
-#turnLeft(0.05)
-#turnRight(1)
-#pivotLeft(1)
-#pivotRight(0.1)
+roverPyCommand.backward(1)
+roverPyCommand.turnLeft(0.5)
+roverPyCommand.turnRight(1)
+roverPyCommand.pivotLeft(1)
+roverPyCommand.pivotRight(0.3)
+roverPyCommand.stop()
 
 ##GPIO.setmode(GPIO.BCM)
 ##GPIO.setup(22, GPIO.OUT)
