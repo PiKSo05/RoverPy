@@ -1,0 +1,8 @@
+
+- video streaming 
+  - https://dantheiotman.com/2017/08/23/using-raspivid-for-low-latency-pi-zero-w-video-streaming/
+
+
+- ultrasonic distance measure:
+  - http://www.manuel-esteban.com/lire-un-capteur-ultrason-hc-sr04-avec-un-raspberry-pi/
+  - https://www.youtube.com/watch?v=HutxiWnX26w
