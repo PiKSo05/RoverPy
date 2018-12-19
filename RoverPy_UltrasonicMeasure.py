@@ -7,14 +7,16 @@ class UltrasonicMeasure:
 	# Define GPIO to use on Pi
 	GPIO_TRIGGER = 17
 	GPIO_ECHO = 27
+	MeasureOn = 0
 
-	def __init__(self):
+	def init(self):
 		# Use BCM GPIO references
 		# instead of physical pin numbers
 		GPIO.setmode(GPIO.BCM)
 
 	def Measure(self):
 		print "Ultrasonic Measurement"
+		self.init()
 		# Set pins as output and input
 		GPIO.setup(self.GPIO_TRIGGER,GPIO.OUT)  # Trigger
 		GPIO.setup(self.GPIO_ECHO,GPIO.IN)      # Echo
@@ -40,12 +42,11 @@ class UltrasonicMeasure:
 
 		# Reset GPIO settings
 		GPIO.cleanup()
-		
 		print "Distance : %.1f" % distance
-		
+
 		return distance
-	
-	def ComputeDistance(startTime, stopTime):
+
+	def ComputeDistance(self, startTime, stopTime):
 		# Calculate pulse length
 		elapsed = stopTime-startTime
 
@@ -55,15 +56,24 @@ class UltrasonicMeasure:
 
 		# That was the distance there and back so halve the value
 		distance = distance / 2
-		
+
 		return distance
 
 	def MeasureAverage(self, numberOfMeasures):
 		distance = 0
-		
+
 		for i in range(0, numberOfMeasures):
-			distance = self.Measure()
-		
+			distance = distance + self.Measure()
+
 		distance = distance / numberOfMeasures
-		
+		print "Distance moyenne : %.1f" % distance
+
 		return distance
+
+	def MeasureContinueStart(self):
+		self.MeasureOn = 1
+		while self.MeasureOn == 1:
+			self.Measure()
+
+	def MeasureContinueStop(self):
+		self.MeasureOn = 0
