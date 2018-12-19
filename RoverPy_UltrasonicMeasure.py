@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 
 class UltrasonicMeasure:
 	# Define GPIO to use on Pi
-	GPIO_TRIGGER = 23
-	GPIO_ECHO = 24
+	GPIO_TRIGGER = 17
+	GPIO_ECHO = 27
 
 	def __init__(self):
 		# Use BCM GPIO references
