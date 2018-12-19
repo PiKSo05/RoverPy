@@ -6,3 +6,6 @@
 - ultrasonic distance measure:
   - http://www.manuel-esteban.com/lire-un-capteur-ultrason-hc-sr04-avec-un-raspberry-pi/
   - https://www.youtube.com/watch?v=HutxiWnX26w
+  
+  Gpio
+https://pinout.xyz/
