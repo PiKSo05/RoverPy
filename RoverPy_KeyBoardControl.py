@@ -1,4 +1,4 @@
-import RoverPyCommand from RoverPy_command
+from RoverPy_command import RoverPyCommand
   
 class KeyBoardControl:
   
@@ -10,26 +10,27 @@ class KeyBoardControl:
   turnLeftKey = 'q'
   pivotRightKey = 'c'
   pivotLeftKey = 'w'
+  roverPyCommand = RoverPyCommand()
 
   def __init__(self):
-      print 'constructeur'
-    
+	print 'constructeur'
+
   def keyInput(self, event):
 	print 'key: ', event.name
 	keyPress = event.name
 	if keyPress.lower() == self.forwardKey:
-		self.forward(self.sleepTime)
+		self.roverPyCommand.forward(self.sleepTime)
 	elif keyPress.lower() == self.backwardKey:
-		self.backward(self.sleepTime)
+		self.roverPyCommand.backward(self.sleepTime)
 	elif keyPress.lower() == self.turnLeftKey:
-		self.turnLeft(self.sleepTime)
+		self.roverPyCommand.turnLeft(self.sleepTime)
 	elif keyPress.lower() == self.turnRightKey:
-		self.turnRight(self.sleepTime)
+		self.roverPyCommand.turnRight(self.sleepTime)
 	elif keyPress.lower() == self.pivotLeftKey:
-		self.pivotLeft(self.sleepTime)
+		self.roverPyCommand.pivotLeft(self.sleepTime)
 	elif keyPress.lower() == self.pivotRightKey:
-		self.pivotRight(self.sleepTime)
+		self.roverPyCommand.pivotRight(self.sleepTime)
 	elif keyPress.lower() == self.stopKey:
-		self.stop()
+		self.roverPyCommand.stop()
 	else:
 		pass
