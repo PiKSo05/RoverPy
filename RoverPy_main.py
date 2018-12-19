@@ -1,7 +1,7 @@
 import keyboard
-from RoverPy_command import RoverPyCommand
+from RoverPy_KeyBoardControl import KeyBoardControl
 
-rover = RoverPyCommand()
+keyBoardControl = KeyBoardControl()
 
-keyboard.on_press(rover.keyInput)
+keyboard.on_press(keyBoardControl.keyInput)
 keyboard.wait('esc')
