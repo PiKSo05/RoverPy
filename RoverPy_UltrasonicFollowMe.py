@@ -26,7 +26,7 @@ class UltrasonicFollowMe:
 				else:
 					self.roverPyCommand.forward(self.walkingDuration)
 			else:
-				self.overPyCommand.backward(self.walkingDuration)					
+				self.roverPyCommand.backward(self.walkingDuration)					
 	
 	def stop(self):
 		self.isStarted = False
