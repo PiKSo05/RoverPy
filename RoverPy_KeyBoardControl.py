@@ -1,4 +1,6 @@
 from RoverPy_command import RoverPyCommand
+from RoverPy_UltrasonicFollowMe import UltrasonicFollowMe
+from RoverPy_UltrasonicMazeSolver import UltrasonicMazeSolver
   
 class KeyBoardControl:
   
@@ -10,7 +12,11 @@ class KeyBoardControl:
   turnLeftKey = 'q'
   pivotRightKey = 'c'
   pivotLeftKey = 'w'
+  mazeSolverModeKey = '1'
+  followMeModeKey = '2'
   roverPyCommand = RoverPyCommand()
+  ultrasonicMazeSolver = UltrasonicMazeSolver()
+  ultrasonicFollowMe = UltrasonicFollowMe()
 
   def __init__(self):
 	print 'constructeur'
@@ -18,6 +24,12 @@ class KeyBoardControl:
   def keyInput(self, event):
 	print 'key: ', event.name
 	keyPress = event.name
+	
+	if keyPress.lower() != self.mazeSolverModeKey:
+		self.ultrasonicMazeSolver.stop()
+	if keyPress.lower() != self.followMeModeKey:
+		self.ultrasonicFollowMe.stop()
+		
 	if keyPress.lower() == self.forwardKey:
 		self.roverPyCommand.forward(self.sleepTime)
 	elif keyPress.lower() == self.backwardKey:
@@ -32,5 +44,9 @@ class KeyBoardControl:
 		self.roverPyCommand.pivotRight(self.sleepTime)
 	elif keyPress.lower() == self.stopKey:
 		self.roverPyCommand.stop()
+	elif keyPress.lower() == self.mazeSolverModeKey:
+		self.ultrasonicMazeSolver.start()
+	elif keyPress.lower() == self.followMeModeKey:
+		self.ultrasonicFollowMe.start()
 	else:
 		pass

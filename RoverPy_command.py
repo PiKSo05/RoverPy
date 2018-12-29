@@ -93,25 +93,25 @@ class RoverPyCommand:
 		time.sleep(tf)
 		GPIO.cleanup()
 
-#	def keyInput(self, event):
-#		print 'key: ', event.name
-#		keyPress = event.name
-#		sleepTime = 0.030
-#		if keyPress.lower() == 'z':
-#			self.forward(sleepTime)
-#		elif keyPress.lower() == 's':
-#			self.backward(sleepTime)
-#		elif keyPress.lower() == 'q':
-#			self.turnLeft(sleepTime)
-#		elif keyPress.lower() == 'd':
-#			self.turnRight(sleepTime)
-#		elif keyPress.lower() == 'w':
-#			self.pivotLeft(sleepTime)
-#		elif keyPress.lower() == 'c':
-#			self.pivotRight(sleepTime)
-#		elif keyPress.lower() == 'space':
-#			self.stop()
-#		else:
-#			pass
-
+	def conversionAngleToTime(self, angle):
+		#angle en Degre et time en millisecondes
+		coefficient = 6 / 1000
+		time = angle * coefficient
+		return time
+		
+	def turnRightAngle(self, angle):
+		time = self.conversionAngleToTime(angle)
+		self.turnRight(time)
+		
+	def turnLeftAngle(self, angle):
+		time = self.conversionAngleToTime(angle)
+		self.turnLeft(time)	
+		
+	def pivotRightAngle(self, angle):
+		time = self.conversionAngleToTime(angle)
+		self.pivotRight(time)
+		
+	def pivotLeftAngle(self, angle):
+		time = self.conversionAngleToTime(angle)
+		self.pivotLeft(time)
 	
