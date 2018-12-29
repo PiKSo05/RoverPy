@@ -1,11 +1,11 @@
 
 # Import required Python libraries
 import time
-from threading import Thread
+from StoppableThread import StoppableThread
 from RoverPy_UltrasonicMeasure import UltrasonicMeasure
 from RoverPy_command import RoverPyCommand
 
-class UltrasonicMazeSolver(Thread):
+class UltrasonicMazeSolver(StoppableThread):
 	roverPyCommand = RoverPyCommand()
 	ultrasonicMeasure = UltrasonicMeasure()
 	distanceMin = 10.0 #distance in centimeter
@@ -15,7 +15,7 @@ class UltrasonicMazeSolver(Thread):
 	
 	def __init__(self):
 		print 'constructeur'
-		Thread.__init__(self)
+		StoppableThread.__init__(self)
 		
 	def run(self):
 		while True:
