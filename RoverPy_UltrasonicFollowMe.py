@@ -17,16 +17,16 @@ class UltrasonicFollowMe:
 		print 'constructeur'
 		
 	def start(self):
-		isStarted = True
-		while isStarted:
-			distance = ultrasonicMeasure.MeasureAverage(measureNumber)
-			if distance > distanceMin:
-				if distance < distanceMax:
-					roverPyCommand.stop()
+		self.isStarted = True
+		while self.isStarted:
+			self.distance = self.ultrasonicMeasure.MeasureAverage(self.measureNumber)
+			if self.distance > self.distanceMin:
+				if self.distance < self.distanceMax:
+					self.roverPyCommand.stop()
 				else:
-					roverPyCommand.forward(walkingDuration)
+					self.roverPyCommand.forward(self.walkingDuration)
 			else:
-				roverPyCommand.backward(walkingDuration)					
+				rself.overPyCommand.backward(self.walkingDuration)					
 	
 	def stop(self):
-		isStarted = False
+		self.isStarted = False

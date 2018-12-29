@@ -17,14 +17,14 @@ class UltrasonicMazeSolver:
 		print 'constructeur'
 		
 	def start(self):
-		isStarted = True
-		while isStarted:
-			distance = ultrasonicMeasure.MeasureAverage(measureNumber)
-			if distance > distanceMin:
-				roverPyCommand.forward(walkingDuration)
+		self.isStarted = True
+		while self.isStarted:
+			self.distance = self.ultrasonicMeasure.MeasureAverage(self.measureNumber)
+			if self.distance > self.distanceMin:
+				self.roverPyCommand.forward(self.walkingDuration)
 			else:
-				roverPyCommand.backward(walkingDuration)
-				roverPyCommand.pivotRightAngle(turnAngle)						
+				self.roverPyCommand.backward(self.walkingDuration)
+				self.roverPyCommand.pivotRightAngle(self.turnAngle)						
 	
 	def stop(self):
-		isStarted = False
+		self.isStarted = False
