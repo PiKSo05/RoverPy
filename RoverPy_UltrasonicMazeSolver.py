@@ -19,7 +19,7 @@ class UltrasonicMazeSolver(StoppableThread):
 		
 	def run(self):
 		while True:
-			if self.StoppableThread.stopped():
+			if self.stopped():
 				self.roverPyCommand.stop()
 				break
 			self.distance = self.ultrasonicMeasure.MeasureAverage(self.measureNumber)
