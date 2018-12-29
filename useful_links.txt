@@ -7,5 +7,10 @@
   - http://www.manuel-esteban.com/lire-un-capteur-ultrason-hc-sr04-avec-un-raspberry-pi/
   - https://www.youtube.com/watch?v=HutxiWnX26w
   
-  Gpio
-https://pinout.xyz/
+- Gpio
+	- https://pinout.xyz/
+	- analog output : http://www.toptechboy.com/raspberry-pi/raspberry-pi-lesson-27-analog-voltages-using-gpio-pwm-in-python/
+
+- python 
+	- events : https://tutorialedge.net/python/python-event-driven-rxpy-tutorial/
+	
