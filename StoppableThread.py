@@ -5,11 +5,14 @@ class StoppableThread(threading.Thread):
     regularly for the stopped() condition."""
 
     def __init__(self):
+		print 'StoppableThread init'
         super(StoppableThread, self).__init__()
         self._stop_event = threading.Event()
 
     def stop(self):
+		print 'StoppableThread stop'
         self._stop_event.set()
 
     def stopped(self):
+		print 'StoppableThread stopped'
         return self._stop_event.is_set()
