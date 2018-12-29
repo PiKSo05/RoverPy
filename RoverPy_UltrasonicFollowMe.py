@@ -17,8 +17,12 @@ class UltrasonicFollowMe(StoppableThread):
 		print 'constructeur'
 		StoppableThread.__init__(self)
 		
+		
 	def run(self):
 		while True:
+			if StoppableThread.stopped():
+				self.roverPyCommand.stop()
+				break
 			self.distance = self.ultrasonicMeasure.MeasureAverage(self.measureNumber)
 			if self.distance > self.distanceMin:
 				if self.distance < self.distanceMax:
@@ -26,5 +30,7 @@ class UltrasonicFollowMe(StoppableThread):
 				else:
 					self.roverPyCommand.forward(self.walkingDuration)
 			else:
-				self.roverPyCommand.backward(self.walkingDuration)					
+				self.roverPyCommand.backward(self.walkingDuration)		
+
+	
 	
