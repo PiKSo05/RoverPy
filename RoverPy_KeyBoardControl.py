@@ -41,9 +41,11 @@ class KeyBoardControl:
 		self.roverPyCommand.stop()
 		self.ultrasonicMazeSolver.stop()
 		self.ultrasonicFollowMe.stop()
-	elif keyPress.lower() == self.mazeSolverModeKey:
+	elif keyPress.lower() == self.mazeSolverModeKey:	
+		self.ultrasonicMazeSolver = UltrasonicMazeSolver()
 		self.ultrasonicMazeSolver.start()
 	elif keyPress.lower() == self.followMeModeKey:
+		self.ultrasonicFollowMe = UltrasonicFollowMe()
 		self.ultrasonicFollowMe.start()
 	else:
 		pass
