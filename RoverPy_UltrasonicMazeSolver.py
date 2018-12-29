@@ -5,7 +5,7 @@ from threading import Thread
 from RoverPy_UltrasonicMeasure import UltrasonicMeasure
 from RoverPy_command import RoverPyCommand
 
-class UltrasonicMazeSolver:
+class UltrasonicMazeSolver(Thread):
 	roverPyCommand = RoverPyCommand()
 	ultrasonicMeasure = UltrasonicMeasure()
 	distanceMin = 10.0 #distance in centimeter
