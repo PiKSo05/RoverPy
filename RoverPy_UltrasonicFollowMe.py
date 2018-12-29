@@ -1,11 +1,11 @@
 
 # Import required Python libraries
 import time
+from StoppableThread import StoppableThread
 from RoverPy_UltrasonicMeasure import UltrasonicMeasure
 from RoverPy_command import RoverPyCommand
 
-class UltrasonicFollowMe:
-	isStarted = False
+class UltrasonicFollowMe(StoppableThread):
 	roverPyCommand = RoverPyCommand()
 	ultrasonicMeasure = UltrasonicMeasure()
 	distanceMin = 10.0 #distance in centimeter
@@ -15,10 +15,10 @@ class UltrasonicFollowMe:
 	
 	def __init__(self):
 		print 'constructeur'
+		StoppableThread.__init__(self)
 		
-	def start(self):
-		self.isStarted = True
-		while self.isStarted:
+	def run(self):
+		while True:
 			self.distance = self.ultrasonicMeasure.MeasureAverage(self.measureNumber)
 			if self.distance > self.distanceMin:
 				if self.distance < self.distanceMax:
@@ -28,5 +28,3 @@ class UltrasonicFollowMe:
 			else:
 				self.roverPyCommand.backward(self.walkingDuration)					
 	
-	def stop(self):
-		self.isStarted = False

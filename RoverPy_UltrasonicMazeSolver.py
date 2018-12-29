@@ -1,11 +1,11 @@
 
 # Import required Python libraries
 import time
+from threading import Thread
 from RoverPy_UltrasonicMeasure import UltrasonicMeasure
 from RoverPy_command import RoverPyCommand
 
 class UltrasonicMazeSolver:
-	isStarted = False
 	roverPyCommand = RoverPyCommand()
 	ultrasonicMeasure = UltrasonicMeasure()
 	distanceMin = 10.0 #distance in centimeter
@@ -15,10 +15,10 @@ class UltrasonicMazeSolver:
 	
 	def __init__(self):
 		print 'constructeur'
+		Thread.__init__(self)
 		
-	def start(self):
-		self.isStarted = True
-		while self.isStarted:
+	def run(self):
+		while True:
 			self.distance = self.ultrasonicMeasure.MeasureAverage(self.measureNumber)
 			if self.distance > self.distanceMin:
 				self.roverPyCommand.forward(self.walkingDuration)
@@ -26,5 +26,3 @@ class UltrasonicMazeSolver:
 				self.roverPyCommand.backward(self.walkingDuration)
 				self.roverPyCommand.pivotRightAngle(self.turnAngle)						
 	
-	def stop(self):
-		self.isStarted = False
