@@ -33,7 +33,7 @@ class KeyBoardControl:
 		self.ultrasonicFollowMe.join()
 		
 	if keyPress.lower() == self.forwardKey:
-		self.roverPyCommand.	²(self.sleepTime)
+		self.roverPyCommand.forward(self.sleepTime)
 	elif keyPress.lower() == self.backwardKey:
 		self.roverPyCommand.backward(self.sleepTime)
 	elif keyPress.lower() == self.turnLeftKey:
