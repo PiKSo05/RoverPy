@@ -27,11 +27,13 @@ class KeyBoardControl:
 	
 	if keyPress.lower() != self.mazeSolverModeKey:
 		self.ultrasonicMazeSolver.stop()
+		self.ultrasonicMazeSolver.join()
 	if keyPress.lower() != self.followMeModeKey:
 		self.ultrasonicFollowMe.stop()
+		self.ultrasonicFollowMe.join()
 		
 	if keyPress.lower() == self.forwardKey:
-		self.roverPyCommand.forward(self.sleepTime)
+		self.roverPyCommand.	²(self.sleepTime)
 	elif keyPress.lower() == self.backwardKey:
 		self.roverPyCommand.backward(self.sleepTime)
 	elif keyPress.lower() == self.turnLeftKey:

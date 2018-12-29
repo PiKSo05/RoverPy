@@ -19,6 +19,7 @@ class UltrasonicFollowMe(StoppableThread):
 		
 		
 	def run(self):
+		print 'demarrage de UltrasonicFollowMe'
 		while True:
 			if self.stopped():
 				self.roverPyCommand.stop()
