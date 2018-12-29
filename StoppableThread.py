@@ -11,8 +11,8 @@ class StoppableThread(threading.Thread):
 
     def stop(self):
 		print 'StoppableThread init'
-        self._stop_event.set()
-
+		self._stop_event.set()
+		
     def stopped(self):
 		print 'StoppableThread init'
-        return self._stop_event.is_set()
+		return self._stop_event.is_set()
